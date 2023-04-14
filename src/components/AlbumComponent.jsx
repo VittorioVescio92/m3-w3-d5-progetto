@@ -1,0 +1,8 @@
+const AlbumComponent = () => {
+  return (
+    <div>
+      <h1>home</h1>
+    </div>
+  );
+};
+export default AlbumComponent;

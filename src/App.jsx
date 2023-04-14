@@ -1,11 +1,20 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import logo from "./logo.svg";
 import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Homepage from "./components/Homepage";
+import ArtistComponent from "./components/ArtistComponent";
+import AlbumComponent from "./components/AlbumComponent";
 
 function App() {
   return (
     <div className="App">
-      <h1>test</h1>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/album/:id" element={<ArtistComponent />} />
+          <Route path="/artist:id" element={<AlbumComponent />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
