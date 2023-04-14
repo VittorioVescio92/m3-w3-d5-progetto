@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import SongCard from "./SongCard";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getHipHopAction, getPopAction, getRockAction, getSearchAction } from "../redux/actions";
+import { getHipHopAction, getPopAction, getRockAction, getSearchAction, setSelectedSongAction } from "../redux/actions";
 
 const MainComponent = () => {
   const search = useSelector(state => state.home.query);
@@ -26,6 +26,10 @@ const MainComponent = () => {
   const popSongs = useSelector(state => state.home.pop);
   const hipHopSongs = useSelector(state => state.home.hipHop);
   const searchSongs = useSelector(state => state.home.search);
+
+  const handleSongClick = song => {
+    dispatch(setSelectedSongAction(song));
+  };
 
   return (
     <>
@@ -65,7 +69,7 @@ const MainComponent = () => {
             <Row className="row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3" id="rockSection">
               {rockSongs.length > 0 &&
                 rockSongs.slice(0, 4).map(song => (
-                  <Col key={song.id} className="text-center" id="id">
+                  <Col key={song.id} onClick={() => handleSongClick(song)} className="text-center" id="id">
                     <SongCard song={song} />
                   </Col>
                 ))}

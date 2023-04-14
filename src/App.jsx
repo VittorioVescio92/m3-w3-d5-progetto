@@ -11,8 +11,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Homepage />} />
-          <Route path="/album/:id" element={<ArtistComponent />} />
-          <Route path="/artist/:id" element={<AlbumComponent />} />
+          <Route path="/album/:id" element={<AlbumComponent />} />
+          <Route path="/artist/:id" element={<ArtistComponent />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -1,12 +1,19 @@
 import { Image } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { setSelectedSongAction } from "../redux/actions";
 
 const SongCard = ({ song }) => {
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(setSelectedSongAction(song));
+  };
+
   return (
     <>
-      <Link to={`/album/${song.album.id}`}>
-        <Image fluid src={song.album.cover_medium} alt="1" />
-      </Link>
+      <Image fluid src={song.album.cover_medium} alt="1" onClick={handleClick} />
+
       <p>
         <Link to={`/album/${song.album.id}`}>
           Album: {song.album.title}
@@ -17,4 +24,5 @@ const SongCard = ({ song }) => {
     </>
   );
 };
+
 export default SongCard;
