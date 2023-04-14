@@ -12,7 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/album/:id" element={<ArtistComponent />} />
-          <Route path="/artist:id" element={<AlbumComponent />} />
+          <Route path="/artist/:id" element={<AlbumComponent />} />
         </Routes>
       </BrowserRouter>
     </div>

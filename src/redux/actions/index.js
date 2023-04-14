@@ -1,22 +1,21 @@
-export const ADD_TO_FAVOURITES = "ADD_TO_FAVOURITES";
-export const DELETE = "DELETE";
-export const FETCH_RESULTS = "FETCH_RESULTS";
-export const RESET_RESULTS = "RESET_RESULTS";
+export const GET_ROCK = "GET_ROCK";
+export const GET_POP = "GET_POP";
+export const GET_HIP_HOP = "GET_HIP_HOP";
+export const GET_QUERY = "GET_QUERY";
+export const GET_SEARCH = "GET_SEARCH";
+export const RESET_SEARCH = "RESET_SEARCH";
 
-export const resetResultsAction = () => ({ type: RESET_RESULTS });
+export const getQueryAction = query => ({ type: GET_QUERY, payload: query });
+export const resetSearchAction = () => ({ type: RESET_SEARCH, payload: [] });
 
-export const addToFavouritesAction = data => ({ type: ADD_TO_FAVOURITES, payload: data });
-export const removeFromFavouritesAction = index => ({ type: DELETE, payload: index });
-export const getCompanyAction = params => {
+export const getRockAction = url => {
   return async dispatch => {
-    const baseEndpoint = "https://strive-benchmark.herokuapp.com/api/jobs?company=";
     try {
-      const response = await fetch(baseEndpoint + params.companyName);
-      if (response.ok) {
-        const { data } = await response.json();
-        dispatch({ type: FETCH_RESULTS, payload: data });
-      } else {
-        alert("Error fetching results");
+      let resp = await fetch(url);
+      if (resp.ok) {
+        let songs = await resp.json();
+
+        dispatch({ type: GET_ROCK, payload: songs.data });
       }
     } catch (error) {
       console.log(error);
@@ -24,16 +23,44 @@ export const getCompanyAction = params => {
   };
 };
 
-export const getJobsAction = query => {
+export const getPopAction = url => {
   return async dispatch => {
-    const baseEndpoint = "https://strive-benchmark.herokuapp.com/api/jobs?search=";
     try {
-      const response = await fetch(baseEndpoint + query + "&limit=20");
-      if (response.ok) {
-        const { data } = await response.json();
-        dispatch({ type: FETCH_RESULTS, payload: data });
-      } else {
-        alert("Error fetching results");
+      let resp = await fetch(url);
+      if (resp.ok) {
+        let songs = await resp.json();
+
+        dispatch({ type: GET_POP, payload: songs.data });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const getHipHopAction = url => {
+  return async dispatch => {
+    try {
+      let resp = await fetch(url);
+      if (resp.ok) {
+        let songs = await resp.json();
+
+        dispatch({ type: GET_HIP_HOP, payload: songs.data });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const getSearchAction = url => {
+  return async dispatch => {
+    try {
+      let resp = await fetch(url);
+      if (resp.ok) {
+        let songs = await resp.json();
+
+        dispatch({ type: GET_SEARCH, payload: songs.data });
       }
     } catch (error) {
       console.log(error);
