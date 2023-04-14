@@ -7,8 +7,8 @@ import { getHipHopAction, getPopAction, getRockAction, getSearchAction, setSelec
 
 const MainComponent = () => {
   const search = useSelector(state => state.home.query);
-  const endpointRock = "https://striveschool-api.herokuapp.com/api/deezer/search?q=Rock%20Classics";
-  const endpointPop = "https://striveschool-api.herokuapp.com/api/deezer/search?q=Pop%20Culture";
+  const endpointRock = "https://striveschool-api.herokuapp.com/api/deezer/search?q=Rock";
+  const endpointPop = "https://striveschool-api.herokuapp.com/api/deezer/search?q=Pop";
   const endpointHipHop = "https://striveschool-api.herokuapp.com/api/deezer/search?q=Hip%20Hop";
   const endpointSearch = `https://striveschool-api.herokuapp.com/api/deezer/search?q=${search}`;
   const dispatch = useDispatch();
@@ -49,7 +49,7 @@ const MainComponent = () => {
             <Col xs={10}>
               <div id="searchResults">
                 <h2>Search Results</h2>
-                <Row className="row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
+                <Row className="row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-2">
                   {searchSongs.map(song => (
                     <Col key={song.id} className="text-center" id="id">
                       <SongCard song={song} />
@@ -65,8 +65,8 @@ const MainComponent = () => {
       <Row>
         <Col xs={10}>
           <div id="rock">
-            <h2>Rock Classics</h2>
-            <Row className="row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3" id="rockSection">
+            <h2>Rock</h2>
+            <Row className="row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-2" id="rockSection">
               {rockSongs.length > 0 &&
                 rockSongs.slice(0, 4).map(song => (
                   <Col key={song.id} onClick={() => handleSongClick(song)} className="text-center" id="id">
@@ -81,8 +81,8 @@ const MainComponent = () => {
       <Row>
         <Col xs={10}>
           <div id="pop">
-            <h2>Pop Culture</h2>
-            <Row className="row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3" id="popSection">
+            <h2>Pop</h2>
+            <Row className="row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-2" id="popSection">
               {popSongs.length > 0 &&
                 popSongs.slice(0, 4).map(song => (
                   <Col key={song.id} className="text-center" id="id">
@@ -98,7 +98,7 @@ const MainComponent = () => {
         <Col xs={10}>
           <div id="hiphop">
             <h2>#HipHop</h2>
-            <Row className="row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3" id="hipHopSection">
+            <Row className="row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-2" id="hipHopSection">
               {hipHopSongs.length > 0 &&
                 hipHopSongs.slice(0, 4).map(song => (
                   <Col key={song.id} className="text-center" id="id">

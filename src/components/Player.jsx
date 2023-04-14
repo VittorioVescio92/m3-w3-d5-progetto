@@ -19,7 +19,7 @@ const Player = () => {
             {selectedSong !== null && (
               <Col xs={2} className="text-center d-flex py-auto align-items-center">
                 <Image id="playerImg" src={selectedSong.album.cover} alt="song cover" />
-                <h5 className="text-light fs-6">{selectedSong.album.title}</h5>
+                <h5 className="text-light fs-6 ps-2">{selectedSong.album.title}</h5>
               </Col>
             )}
             <Col xs={6} md={4} lg={2} className="mx-auto playerControls mt-1">
