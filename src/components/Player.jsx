@@ -17,7 +17,7 @@ const Player = () => {
         <Col lg={10} className="offset-lg-2">
           <Row>
             {selectedSong !== null && (
-              <Col lg={2} className="text-center">
+              <Col xs={1} className="text-center">
                 <Image src={selectedSong.album.cover} alt="song cover" fluid />
                 <h5>{selectedSong.album.title}</h5>
               </Col>
