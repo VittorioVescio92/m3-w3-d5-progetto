@@ -225,3 +225,8 @@ ul {
 .mainPage img {
   width: 200px;
 }
+
+#playerImg {
+  width: 70px;
+  padding-block: auto;
+}

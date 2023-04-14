@@ -17,12 +17,12 @@ const Player = () => {
         <Col lg={10} className="offset-lg-2">
           <Row>
             {selectedSong !== null && (
-              <Col xs={1} className="text-center">
-                <Image src={selectedSong.album.cover} alt="song cover" fluid />
-                <h5>{selectedSong.album.title}</h5>
+              <Col xs={2} className="text-center d-flex py-auto align-items-center">
+                <Image id="playerImg" src={selectedSong.album.cover} alt="song cover" />
+                <h5 className="text-light fs-6">{selectedSong.album.title}</h5>
               </Col>
             )}
-            <Col xs={6} md={4} lg={2} className="offset-3 offset-md-4 offset-lg-5 playerControls mt-1">
+            <Col xs={6} md={4} lg={2} className="mx-auto playerControls mt-1">
               <Row>
                 <Col>
                   <Link to="#">
@@ -53,7 +53,7 @@ const Player = () => {
             </Col>
           </Row>
           <Row className="justify-content-center playBar py-3">
-            <Col xs={6} md={4}>
+            <Col xs={6} md={4} className="mx-auto">
               <ProgressBar now={0} />
             </Col>
           </Row>
