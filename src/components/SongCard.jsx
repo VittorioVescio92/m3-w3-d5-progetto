@@ -12,8 +12,7 @@ const SongCard = ({ song }) => {
 
   return (
     <>
-      <Image fluid src={song.album.cover_medium} alt="1" onClick={handleClick} />
-
+      <Image id="albumImg" fluid src={song.album.cover_medium} alt="1" onClick={handleClick} />
       <p>
         <Link to={`/album/${song.album.id}`}>
           Album: {song.album.title}
