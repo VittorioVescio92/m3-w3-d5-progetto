@@ -13,7 +13,6 @@ const ArtistComponent = () => {
   const dispatch = useDispatch();
   const artistSelected = useSelector(state => state.artist.artist);
 
-  // const tracklist = useSelector(state => state.artist.tracklist);
   // const ArtistTracklist = artistSelected.tracklist;
   // console.log(ArtistTracklist);
   const ArtistEndpoint = `https://striveschool-api.herokuapp.com/api/deezer/artist/${params.id}`;
@@ -26,7 +25,6 @@ const ArtistComponent = () => {
   }, [params]);
 
   console.log(artistSelected);
-  // console.log(tracklist);
 
   return (
     <>

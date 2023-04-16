@@ -71,7 +71,7 @@ const Player = () => {
                 onPlay={() => setPlaying(true)}
                 onPause={() => setPlaying(false)}
               />
-              <ProgressBar now={0} />
+              <ProgressBar now={0} className="mt-2" />
             </Col>
           </Row>
         </Col>

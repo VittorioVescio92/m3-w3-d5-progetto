@@ -9,6 +9,7 @@ export const GET_ALBUM = "GET_ALBUM";
 export const SET_SELECTED_ALBUM = "SET_SELECTED_ALBUM";
 export const GET_ARTIST = "GET_ARTIST";
 export const GET_TRACKLIST = "GET_TRACKLIST";
+export const TOGGLE_FAVOURITE_ALBUM = "TOGGLE_FAVOURITE_ALBUM";
 
 export const getQueryAction = query => ({ type: GET_QUERY, payload: query });
 export const resetSearchAction = () => ({ type: RESET_SEARCH, payload: [] });
@@ -17,6 +18,10 @@ export const setSelectedSongAction = song => ({
   payload: song,
 });
 export const setSelectedAlbumAction = album => ({ type: SET_SELECTED_ALBUM, payload: album });
+export const favouritesAlbumAction = album => ({
+  type: "TOGGLE_FAVOURITE_ALBUM",
+  payload: album,
+});
 
 export const getRockAction = url => {
   return async dispatch => {
