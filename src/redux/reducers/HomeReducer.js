@@ -7,6 +7,7 @@ const initialState = {
   query: "",
   search: [],
   selectedSong: null,
+  album: null,
 };
 
 const homeReducer = (state = initialState, action) => {

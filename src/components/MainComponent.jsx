@@ -30,7 +30,6 @@ const MainComponent = () => {
   const handleSongClick = song => {
     dispatch(setSelectedSongAction(song));
   };
-
   return (
     <>
       <Row>

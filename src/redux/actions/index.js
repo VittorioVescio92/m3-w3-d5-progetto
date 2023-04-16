@@ -5,6 +5,10 @@ export const GET_QUERY = "GET_QUERY";
 export const GET_SEARCH = "GET_SEARCH";
 export const RESET_SEARCH = "RESET_SEARCH";
 export const SET_SELECTED_SONG = "SET_SELECTED_SONG";
+export const GET_ALBUM = "GET_ALBUM";
+export const SET_SELECTED_ALBUM = "SET_SELECTED_ALBUM";
+export const GET_ARTIST = "GET_ARTIST";
+export const GET_TRACKLIST = "GET_TRACKLIST";
 
 export const getQueryAction = query => ({ type: GET_QUERY, payload: query });
 export const resetSearchAction = () => ({ type: RESET_SEARCH, payload: [] });
@@ -12,6 +16,7 @@ export const setSelectedSongAction = song => ({
   type: SET_SELECTED_SONG,
   payload: song,
 });
+export const setSelectedAlbumAction = album => ({ type: SET_SELECTED_ALBUM, payload: album });
 
 export const getRockAction = url => {
   return async dispatch => {
@@ -66,6 +71,48 @@ export const getSearchAction = url => {
       if (resp.ok) {
         let songs = await resp.json();
         dispatch({ type: GET_SEARCH, payload: songs.data });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const getAlbumAction = url => {
+  return async dispatch => {
+    try {
+      let resp = await fetch(url);
+      if (resp.ok) {
+        let album = await resp.json();
+        dispatch({ type: GET_ALBUM, payload: album });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const getArtistAction = url => {
+  return async dispatch => {
+    try {
+      let resp = await fetch(url);
+      if (resp.ok) {
+        let artist = await resp.json();
+        dispatch({ type: GET_ARTIST, payload: artist });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const getTracklistAction = url => {
+  return async dispatch => {
+    try {
+      let resp = await fetch(url);
+      if (resp.ok) {
+        let tracklist = await resp.json();
+        dispatch({ type: GET_TRACKLIST, payload: tracklist });
       }
     } catch (error) {
       console.log(error);
